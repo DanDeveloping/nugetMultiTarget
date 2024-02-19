@@ -1,4 +1,4 @@
-name: .NET Build, Test, Package, and Report Coverage
+name: .NET FRAMEWORK Build, Test, Package, and Report Coverage
 
 on: 
   push:
@@ -10,25 +10,23 @@ on:
  
 jobs: 
   buildall:
-    name: Build and Test .NET
-    runs-on: ubuntu-latest
+    name: Build and Test .NET FRAMEWORK
+    runs-on: windows-latest
 
     strategy:
       matrix: 
-        dotnet-version:
-          - '5.0.x'
-          - '6.0.x'
-          - '7.0.x'
-          - '8.0.x'
+        framework-version:
+          - '4.7.x'
+          - '4.8.x'
 
     steps: 
       - name: Checkout code 
         uses: actions/checkout@v4
 
-      - name: Setup .NET ${{ matrix.dotnet-version }}
+      - name: Setup .NET ${{ matrix.framework-version }}
         uses: actions/setup-dotnet@v4
         with: 
-          dotnet-version: ${{ matrix.dotnet-version }}
+          dotnet-version: ${{ matrix.framework-version }}
 
       - name: Display .NET version 
         run: dotnet --version 
