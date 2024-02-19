@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net47;net48;net6.0;net7.0;net8.0</TargetFrameworks>
+    <LangVersion>11.0</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
+    <AssemblyTitle>DanDeveloping.Echo.Tests .NET 6.0</AssemblyTitle>
+    <Nullable>enable</Nullable>
+    <DefineConstants>$(AdditionalConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net7.0'">
+    <AssemblyTitle>DanDeveloping.Echo.Tests .NET 7.0</AssemblyTitle>
+    <Nullable>enable</Nullable>
+    <DefineConstants>$(AdditionalConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0'">
+    <AssemblyTitle>DanDeveloping.Echo.Tests .NET 8.0</AssemblyTitle>
+    <Nullable>enable</Nullable>
+    <DefineConstants>$(AdditionalConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net47'">
+    <AssemblyTitle>DanDeveloping.Echo.Tests .NET 4.7</AssemblyTitle>
+    <DefineConstants>$(AdditionalConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net48'">
+    <AssemblyTitle>DanDeveloping.Echo.Tests .NET 4.8</AssemblyTitle>
+    <DefineConstants>$(AdditionalConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <AssemblyTitle>DanDeveloping.Echo.Tests .NETSTANDARD 2.0</AssemblyTitle>
+    <DefineConstants>$(AdditionalConstants)</DefineConstants>
+  </PropertyGroup>
+
+
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.9.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DanDeveloping.Echo\DanDeveloping.Echo.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="NUnit.Framework" />
+  </ItemGroup>
+
+  
+</Project>
