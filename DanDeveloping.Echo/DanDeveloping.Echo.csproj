@@ -9,7 +9,7 @@
     <Authors>Dan Developing</Authors>
     <Company>Dan Developing</Company>
     <Description>Provides an echo with limited charcter response</Description>
-    <Summary>Description&gt;Provides an echo with limited charcter response</Summary>
+    <Summary>Description Provides an echo with limited charcter response</Summary>
     <Copyright>Dan Developing © 2024</Copyright>
     <PackageProjectUrl>https://github.com/dmstrat/nugetMultiTarget</PackageProjectUrl>
     <RepositoryUrl>https://github.com/dmstrat/nugetMultiTarget</RepositoryUrl>

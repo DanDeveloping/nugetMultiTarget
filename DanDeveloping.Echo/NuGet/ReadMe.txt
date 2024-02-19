@@ -1,2 +1,2 @@
-Echo: Provided an echo of a string limiting to the last 15 characters.
+Echo: Provides an echo of a string limiting to the last characters.
 

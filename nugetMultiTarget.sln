@@ -12,17 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanDeveloping.Echo", "DanDeveloping.Echo\DanDeveloping.Echo.csproj", "{A6966C35-1819-4CD9-8AFC-1AF83AF7D7A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanDeveloping.Echo.Tests", "DanDeveloping.Echo.Tests\DanDeveloping.Echo.Tests.csproj", "{6B6551CA-F798-4D79-A536-DE438CC695D9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{1DABA904-A36C-4587-BBE2-1FD02D0023B1}"
-	ProjectSection(SolutionItems) = preProject
-		DanDeveloping.Echo\NuGet\echo-free.ico = DanDeveloping.Echo\NuGet\echo-free.ico
-		DanDeveloping.Echo\NuGet\echo-free.png = DanDeveloping.Echo\NuGet\echo-free.png
-		DanDeveloping.Echo\NuGet\License.txt = DanDeveloping.Echo\NuGet\License.txt
-		DanDeveloping.Echo\NuGet\lock-128.ico = DanDeveloping.Echo\NuGet\lock-128.ico
-		DanDeveloping.Echo\NuGet\lock-128.png = DanDeveloping.Echo\NuGet\lock-128.png
-		DanDeveloping.Echo\NuGet\ReadMe.txt = DanDeveloping.Echo\NuGet\ReadMe.txt
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanDeveloping.Echo.Tests", "DanDeveloping.Echo.Tests\DanDeveloping.Echo.Tests.csproj", "{6B6551CA-F798-4D79-A536-DE438CC695D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

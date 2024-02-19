@@ -14,7 +14,7 @@
 
     private string GenerateEcho()
     {
-      var retVal = string.Empty;
+      string retVal;
       var messageNeedsCutting = _Message.Length > 15;
       if (messageNeedsCutting)
       {
