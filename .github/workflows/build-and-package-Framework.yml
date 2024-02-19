@@ -16,8 +16,8 @@ jobs:
     strategy:
       matrix: 
         framework-version:
-          - '4.7.x'
-          - '4.8.x'
+          - '4.7.2'
+          - '4.8.1'
 
     steps: 
       - name: Checkout code 
