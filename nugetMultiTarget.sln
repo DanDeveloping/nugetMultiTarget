@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DanDeveloping.Echo", "DanDeveloping.Echo\DanDeveloping.Echo.csproj", "{A6966C35-1819-4CD9-8AFC-1AF83AF7D7A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanDeveloping.Echo.Tests", "DanDeveloping.Echo.Tests\DanDeveloping.Echo.Tests.csproj", "{6B6551CA-F798-4D79-A536-DE438CC695D9}"
 EndProject
