@@ -38,7 +38,7 @@ jobs:
         run: dotnet restore 
 
       - name: Build Solution
-        run: dotnet build ./nugetMultiTarget.sln /warnaserror /c Release
+        run: dotnet build ./nugetMultiTarget.sln -warnaserror -c Release
 
       - name: Run Tests 
         run: dotnet test ./nugetMultiTarget.sln /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
