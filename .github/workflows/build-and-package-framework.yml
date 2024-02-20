@@ -15,9 +15,12 @@ jobs:
 
     strategy:
       matrix: 
-        framework-version:
-          - '4.7.2'
-          - '4.8.x'
+#        framework-version:
+#          - '4.7.2'
+#          - '4.8.x'
+        target-version:
+          - 'net47'
+          - 'net48'
 
     steps: 
       - name: Checkout code 
@@ -29,17 +32,17 @@ jobs:
       - name: Setup Nuget
         uses: NuGet/setup-nuget@v1
 
-      - name: Restore Project Dependencies 
-        run: nuget restore ./nugetMultiTarget.sln 
+      #- name: Restore Project Dependencies 
+      #  run: nuget restore ./nugetMultiTarget.sln 
 
-      - name: Build Solution
-        run: msbuild ./nugetMultiTarget.sln /p:Configuration=Release
+      - name: Build Solution .NET Framework ${{ matrix.target-version }}
+        run: msbuild ./nugetMultiTarget.sln /p:Configuration=Release /p:TargetFramework="${{ matrix.target-version }}"
 
       - name: Run Tests 
-        run: msbuild ./nugetMultiTarget.sln /t:Test /p:Configuration=Release 
+        run: msbuild ./nugetMultiTarget.sln /t:Test /p:Configuration=Release /p:TargetFramework="${{ matrix.target-version }}"
         
       - name: Run Test Coverage 
-        run: dotnet test ./nugetMultiTarget.sln /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
+        run: dotnet test ./nugetMultiTarget.sln /p:CollectCoverage=true /p:CoverletOutputFormat=lcov -f "${{ matrix.target-version }}"
 
       - name: Upload coverage report for .NET 
         uses: actions/upload-artifact@v4
