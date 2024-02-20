@@ -43,18 +43,21 @@ jobs:
         run: dotnet build ./nugetMultiTarget.sln -warnaserror -c Release
 
       - name: Run Tests 
-        run: dotnet test ./nugetMultiTarget.sln /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
+        run: |
+          dotnet test ./nugetMultiTarget.sln /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=../../Reports /nologo 
+          dotnet reportgenerator "-reports:./Reports/*.xml" "-targetdir:./Reports" -reporttypes:Cobertura
+          dotnet reportgenerator "-reports:./Reports/Cobertura.xml" "-targetdir:./Reports/" -tag:1 -reportTypes:htmlInline
 
       - name: Upload coverage report for .NET 
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: ./TestResults/coverage/lcov.info
+          path: ./Reports/Covertura.xml
 
       - name: Pack NuGet package
         run: dotnet pack --configuration Release --output ./artifacts
 
-      - name: Upload NuGet package
+      - name: Upload NuGet package to Artifacts collection
         uses: actions/upload-artifact@v4
         with:
           name: nuget-package
