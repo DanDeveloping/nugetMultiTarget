@@ -4,17 +4,17 @@
 
 Learning to develop multitargeted nuget packages for .NET targets
 
-# Purpose of the Project
+## Purpose of the Project
 
 Here we can learn how to define, build, test, and report code coverage on a MultiTargeted Framework SDK type project.
 
 In this project we will build a single solution that targets multiple frameworks to allow for the maximum supportability of downstream projects and solutions.
 
-# What does the project do exactly?
+## What does the project do exactly?
 
 This is a sample project that simply creates an 'echo' of a string provided to the Echoer Class with the limitation of only returning the last 15 characters of the string provided.  If the string is less than or equal to 15 characters then the entire string is returned.  It was based on the idea that if you yell too much for an echo you'll only hear the last part of what you said.
 
-## Project Targets
+### Project Targets
 
 The Project we are creating will target:
 
@@ -23,7 +23,7 @@ The Project we are creating will target:
 - .NET 8 (lext LTS version)
 - .NETSTANDARD 2.0 (recommended version for support SDK projects)
 
-## Test Targets
+### Test Targets
 
 The Test Project will act like downstream projects by testing:
 
@@ -42,7 +42,7 @@ The Test Project will act like downstream projects by testing:
   Will be tested by:
   - .NET 5
 
-# Goals of this Solution
+## Goals of this Solution
 
 1. [Target multiple .NET Frameworks](TargetMultipleFrameworks.md) in a single solution/project.
 2. [Testing projects](TestProjects.md) against anticipated downstream versions to reduce revists to this code until a new version needs support or an old version is deprecated.
@@ -51,4 +51,4 @@ The Test Project will act like downstream projects by testing:
 5. Use individually created downstream projects that consume specific versions of the NuGet Package for integration testing.
 6. More Birds with this stone - learn more things while we're here.
 
-# References
+## References

@@ -10,4 +10,4 @@ Because we need to test those projects, we need a test project that consumes tho
 
 The dotnet tools allows a single test to be run against all the different targetframeworks set by the project file.  Therefore, the math becomes the #TargetFrameworks * #Tests = #TestCountExecuted.
 
-# References
+## References

@@ -1,4 +1,4 @@
-﻿# Generate and Integrate Code between Github, Codacy, and NuGet 
+﻿# Generate and Integrate Code between Github, Codacy, and NuGet
 
 [Home](README.md)
 
@@ -37,6 +37,6 @@ dotnet tools allow for most of these actions to be accomplished.
 | Add Package to Artifacts | actions/upload-artifact |
 | Upload NuGet Package to Nuget.org | -**in progress**- |
 
-# References
+## References
 
 [Github Build Workflow](.github/workflows/build-and-package.yml) - Build, Test, Package, and Report
