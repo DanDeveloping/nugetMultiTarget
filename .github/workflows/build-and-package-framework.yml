@@ -30,7 +30,7 @@ jobs:
         uses: NuGet/setup-nuget@v1
 
       - name: Restore Project Dependencies 
-        uses: nuget restore ./nugetMultiTarget.sln 
+        run: nuget restore ./nugetMultiTarget.sln 
 
       - name: Build Solution
         run: msbuild ./nugetMultiTarget.sln /p:Configuration=Release
