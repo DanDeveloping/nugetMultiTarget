@@ -49,6 +49,12 @@
     <Content Include="NuGet\echo-free.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <None Update="NuGet\echo-free.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
