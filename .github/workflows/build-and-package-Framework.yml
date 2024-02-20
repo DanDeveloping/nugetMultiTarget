@@ -11,12 +11,12 @@ on:
 jobs: 
   buildall:
     name: Build and Test .NET FRAMEWORK
-    runs-on: windows-latest
+    runs-on: windows-2019
 
     strategy:
       matrix: 
         framework-version:
-          - '4.7.x'
+          - '4.7.2'
           - '4.8.x'
 
     steps: 
