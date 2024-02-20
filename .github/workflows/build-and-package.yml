@@ -44,11 +44,13 @@ jobs:
 
       - name: Run Tests 
         run: |
-          dotnet test ./nugetMultiTarget.sln /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput='./reports/' /nologo 
+          dotnet test ./nugetMultiTarget.sln --collect:"Code Coverage" --results-directory:"Reports" --nologo
+          dotnet test --collect:"Code Coverage" --results-directory:"./reports/" --nologo 
+
 
       - name: Build Reports 
         run: |
-          dotnet reportgenerator "-reports:./Reports/*.xml" "-targetdir:./Reports" -reporttypes:Cobertura
+          dotnet reportgenerator "-reports:./Reports/*.coverage" "-targetdir:./Reports" 
           dotnet reportgenerator "-reports:./Reports/Cobertura.xml" "-targetdir:./Reports/" -tag:1 -reportTypes:htmlInline
 
       - name: Upload coverage report for .NET 
