@@ -33,7 +33,7 @@ jobs:
         uses: NuGet/setup-nuget@v1
 
       - name: Restore Project Dependencies 
-        run: nuget restore ./nugetMultiTarget.sln 
+        run: nuget restore ./nugetMultiTarget.sln -TargetFramework ${{ matrix.target-version }}
 
       - name: Build Solution .NET Framework ${{ matrix.target-version }}
         run: msbuild ./nugetMultiTarget.sln /p:Configuration=Release /p:TargetFramework="${{ matrix.target-version }}"
