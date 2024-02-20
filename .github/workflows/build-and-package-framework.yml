@@ -32,8 +32,8 @@ jobs:
       - name: Setup Nuget
         uses: NuGet/setup-nuget@v1
 
-      #- name: Restore Project Dependencies 
-      #  run: nuget restore ./nugetMultiTarget.sln 
+      - name: Restore Project Dependencies 
+        run: nuget restore ./nugetMultiTarget.sln 
 
       - name: Build Solution .NET Framework ${{ matrix.target-version }}
         run: msbuild ./nugetMultiTarget.sln /p:Configuration=Release /p:TargetFramework="${{ matrix.target-version }}"
