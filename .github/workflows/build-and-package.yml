@@ -48,7 +48,7 @@ jobs:
 
       - name: Build Reports 
         run: |
-          dotnet reportgenerator "-reports:./Reports/**/*.xml" "-targetdir:./Reports" -reportTypes:htmlInline
+          reportgenerator "-reports:./Reports/**/*.xml" "-targetdir:./Reports" -reportTypes:htmlInline
 
       # Reads the code coverage file and outputs a summary in markdown format
       - name: Code Coverage Summary Report
