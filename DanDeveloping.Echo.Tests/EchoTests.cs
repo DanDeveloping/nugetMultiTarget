@@ -19,7 +19,19 @@ namespace DanDeveloping.Echo.Tests
     [TestCase("123", "123")]
     [TestCase("12", "12")]
     [TestCase("1", "1")]
-    public void LessThan15CharactersProvidesFullMessage(string message, string expectedEcho)
+    public void LessThanOrEquals15CharactersProvidesFullMessage(string message, string expectedEcho)
+    {
+      var echoer = new Echoer();
+      var actualEcho = echoer.Echo(message);
+      Assert.That(actualEcho, Is.EqualTo(expectedEcho));
+    }
+
+    [TestCase("12345678901234567890", "678901234567890")]
+    [TestCase("1234567890123456789", "567890123456789")]
+    [TestCase("123456789012345678", "456789012345678")]
+    [TestCase("12345678901234567", "345678901234567")]
+    [TestCase("1234567890123456", "234567890123456")]
+    public void MoreThan15CharactersReturnsOnlyLast15CharactersInMessage(string message, string expectedEcho)
     {
       var echoer = new Echoer();
       var actualEcho = echoer.Echo(message);
