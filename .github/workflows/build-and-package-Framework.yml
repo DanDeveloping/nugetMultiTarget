@@ -42,7 +42,7 @@ jobs:
         run: dotnet test ./nugetMultiTarget.sln /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
 
       - name: Upload coverage report for .NET 
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: ./TestResults/coverage/lcov.info
