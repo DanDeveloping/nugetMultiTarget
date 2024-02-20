@@ -1,6 +1,9 @@
 name: .NET Build, Test, Package, and Report Coverage
 
 on: 
+  push: 
+    branches: 
+      - main
   pull_request:
     branches:
       - main
