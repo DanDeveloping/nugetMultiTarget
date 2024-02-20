@@ -1,0 +1,89 @@
+name: .NET Build, Test, Package, and Report Coverage
+
+on: 
+  push: 
+    branches: 
+      - main
+  pull_request:
+    branches:
+      - main
+ 
+jobs: 
+  buildall:
+    name: Build and Test .NET
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix: 
+        dotnet-version:
+          - '5.0.x'
+
+    steps: 
+      - name: Checkout code 
+        uses: actions/checkout@v4
+
+      - name: Setup .NET ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v4
+        with: 
+          dotnet-version: ${{ matrix.dotnet-version }}
+
+      - name: Display .NET version 
+        run: dotnet --version 
+
+      - name: Install gloal dependencies 
+        run: dotnet tool restore 
+
+      - name: Restore Solution 
+        run: dotnet restore 
+
+      - name: Build Solution
+        run: dotnet build ./nugetMultiTarget.sln -warnaserror -c Release
+
+      - name: Run Tests 
+        run: dotnet test ./nugetMultiTarget.sln --collect:"XPlat Code Coverage" --results-directory:"Reports" --nologo
+
+      - name: Install Report Generator 
+        run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
+      - name: Build Reports 
+        run: reportgenerator "-reports:./Reports/**/*.xml" "-targetdir:./Reports" -reportTypes:htmlInline
+
+      # Reads the code coverage file and outputs a summary in markdown format
+      - name: Generate Code Coverage Summary Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: Reports/**/coverage.cobertura.xml
+          badge: true
+          format: 'markdown'
+          output: 'both'
+ 
+      # Posts the code coverage summary as a comment on the pull request
+      - name: Add Coverage Report to PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == 'pull_request'
+        with:
+          recreate: true
+          path: code-coverage-results.md
+
+      #Upload code coverage results to codacy 
+      - name: Add Coverage Report to Codacy 
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          api-token: ${{ secrets.CODACY_API_TOKEN }}
+          coverage-reports: Reports/**/coverage.cobertura.xml
+
+      # Writes the code coverage summary to the job summary       
+      - name: Add Coverage Report to Job Summary
+        run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
+
+      - name: Pack NuGet package
+        run: dotnet pack --configuration Release --output ./artifacts
+
+      - name: Upload NuGet package to Artifacts collection
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-package
+          path: ./artifacts/*.nupkg
+
+
+
