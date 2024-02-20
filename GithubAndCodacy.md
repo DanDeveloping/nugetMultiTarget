@@ -36,3 +36,4 @@ dotnet tools allow for most of these actions to be accomplished.
 | Add Package to Artifacts | actions/upload-artifact | 
 | Upload NuGet Package to Nuget.org | ---- | 
 
+# References

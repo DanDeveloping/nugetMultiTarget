@@ -48,3 +48,5 @@ The Test Project will act like downstream projects by testing:
 4. Documentation - Generate and Integrate as much documentation as required for a professional look both on NuGet.org and when consuming the package in downstream solutions.
 6. Use individually created downstream projects that consume specific versions of the NuGet Package for integration testing.
 7. More Birds with this stone - learn more things while we're here. 
+
+# References
