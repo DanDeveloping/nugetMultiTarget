@@ -1,6 +1,6 @@
 ﻿[Home](README.md)
 
-# Testing a project that builds against multiple targets.
+# Testing a project that builds against multiple targets
 
 ## Status [Complete]
 

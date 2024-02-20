@@ -17,6 +17,7 @@ This is a sample project that simply creates an 'echo' of a string provided to t
 ## Project Targets
 
 The Project we are creating will target: 
+
 - .NET Framework 4.7 (legacy projects)
 - .NET 6 (current LTS but EOL late 2024)
 - .NET 8 (lext LTS version)
@@ -25,6 +26,7 @@ The Project we are creating will target:
 ## Test Targets
 
 The Test Project will act like downstream projects by testing: 
+
 - .NET Framework 4.7
   Will be tested by: 
   - .NET Framework 4.7
@@ -46,7 +48,7 @@ The Test Project will act like downstream projects by testing:
 2. [Testing projects](TestProjects.md) against anticipated downstream versions to reduce revists to this code until a new version needs support or an old version is deprecated. 
 3. [Integrate between Github, Codacy, and NuGet](GithubAndCodacy.md) 
 4. Documentation - Generate and Integrate as much documentation as required for a professional look both on NuGet.org and when consuming the package in downstream solutions.
-6. Use individually created downstream projects that consume specific versions of the NuGet Package for integration testing.
-7. More Birds with this stone - learn more things while we're here. 
+5. Use individually created downstream projects that consume specific versions of the NuGet Package for integration testing.
+6. More Birds with this stone - learn more things while we're here. 
 
 # References

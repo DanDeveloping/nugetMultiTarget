@@ -22,4 +22,3 @@ By Removing the \<TargetFramework> node and replacing it with the \<TargetFramew
 
 [Microsoft Learn - Support multiple .NET Framework versions in your project file](https://learn.microsoft.com/en-us/nuget/create-packages/multiple-target-frameworks-project-file)
 
-

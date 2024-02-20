@@ -38,4 +38,5 @@ dotnet tools allow for most of these actions to be accomplished.
 | Upload NuGet Package to Nuget.org | -**in progress**- | 
 
 # References
+
 [Github Build Workflow](.github/workflows/build-and-package.yml) - Build, Test, Package, and Report
