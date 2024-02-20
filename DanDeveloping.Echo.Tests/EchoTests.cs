@@ -4,11 +4,6 @@ namespace DanDeveloping.Echo.Tests
 {
   public class Tests
   {
-    [SetUp]
-    public void Setup()
-    {
-    }
-
     [TestCase("123456789012345","123456789012345")]
     [TestCase("12345678901234", "12345678901234")]
     [TestCase("1234567890123", "1234567890123")]

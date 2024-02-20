@@ -16,31 +16,32 @@ jobs:
     strategy:
       matrix: 
         framework-version:
-          - '4.7.2'
-          - '4.8.1'
+          - '4.7.x'
+          - '4.8.x'
 
     steps: 
       - name: Checkout code 
         uses: actions/checkout@v4
 
-      - name: Setup .NET ${{ matrix.framework-version }}
-        uses: actions/setup-dotnet@v4
-        with: 
-          dotnet-version: ${{ matrix.framework-version }}
+      - name: Setup MSBuild 
+        uses: microsoft/setup-msbuild@v1
 
-      - name: Display .NET version 
-        run: dotnet --version 
+      - name: Setup Nuget
+        uses: NuGet/setup-nuget@v1.1.1
 
-      - name: Install gloal dependencies 
-        run: dotnet tool restore 
+      - name: Setup VSTest
+        uses: darenm/Setup-VSTest@v1.2
 
-      - name: Restore Solution 
-        run: dotnet restore 
+      - name: Restore Project Dependencies 
+        uses: nuget restore ./nugetMultiTarget.sln 
 
       - name: Build Solution
-        run: dotnet build ./nugetMultiTarget.sln -warnaserror -c Release
+        run: msbuild ./nugetMultiTarget.sln /p:Configuration=Release
 
       - name: Run Tests 
+        run: msbuild ./nugetMultiTarget.sln /t:Test /p:Configuration=Release 
+        
+      - name: Run Test Coverage 
         run: dotnet test ./nugetMultiTarget.sln /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
 
       - name: Upload coverage report for .NET 
@@ -48,15 +49,3 @@ jobs:
         with:
           name: coverage-report
           path: ./TestResults/coverage/lcov.info
-
-      - name: Pack NuGet package
-        run: dotnet pack --configuration Release --output ./artifacts
-
-      - name: Upload NuGet package
-        uses: actions/upload-artifact@v2
-        with:
-          name: nuget-package
-          path: ./artifacts/*.nupkg
-
-
-
