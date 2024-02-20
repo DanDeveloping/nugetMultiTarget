@@ -7,8 +7,7 @@ on:
   pull_request:
     branches:
       - main
-      - master
- 
+
 jobs: 
   buildall:
     name: Build and Test .NET FRAMEWORK
