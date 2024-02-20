@@ -20,7 +20,8 @@ Codacy has free accounts that easily integrate with github repositories like thi
 
 dotnet tools allow for most of these actions to be accomplished. 
 
-| Action | github action |
+| Step | github action command |
+| --- | --- |
 | Checkout code | actions/checkout |
 | Install dotnet tools | dotnet tool restore | 
 | Restore solution | dotnet restore | 
@@ -34,6 +35,7 @@ dotnet tools allow for most of these actions to be accomplished.
 | Add Coverage Report to Job Summary | >> $GITHUB_STEP_SUMMARY | 
 | Generate NuGet Package | dotnet pack ... | 
 | Add Package to Artifacts | actions/upload-artifact | 
-| Upload NuGet Package to Nuget.org | ---- | 
+| Upload NuGet Package to Nuget.org | -**in progress**- | 
 
 # References
+[Github Build Workflow](.github/workflows/build-and-package.yml) - Build, Test, Package, and Report
