@@ -44,7 +44,7 @@ jobs:
 
       - name: Run Tests 
         run: |
-          dotnet test ./nugetMultiTarget.sln /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=../../Reports /nologo 
+          dotnet test ./nugetMultiTarget.sln /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput='./reports/' /nologo 
 
       - name: Build Reports 
         run: |
