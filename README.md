@@ -40,13 +40,11 @@ The Test Project will act like downstream projects by testing:
   Will be tested by: 
   - .NET 5
 
-# How does the solution target multiple Frameworks?
+# Goals of this Solution
 
-Using a SDK style project, we can modify the [project file](DanDeveloping.Echo/DanDeveloping.Echo.csproj). 
-By Removing the \<TargetFramework> node and replacing it with the \<TargetFrameworks> node then adding the target frameworks desired. 
-
-## Example
-
-> \<TargetFramework>.net6\</TargetFramework>
-> \<TargetFrameworks>net47;net6.0;net8.0;netstandard2.0\</TargetFrameworks>
-
+1. [Target multiple .NET Frameworks](TargetMultipleFrameworks.md) in a single solution/project. 
+2. [Testing projects](TestProjects.md) against anticipated downstream versions to reduce revists to this code until a new version needs support or an old version is deprecated. 
+3. [Integrate between Github, Codacy, and NuGet](GithubAndCodacy.md) 
+4. Documentation - Generate and Integrate as much documentation as required for a professional look both on NuGet.org and when consuming the package in downstream solutions.
+6. Use individually created downstream projects that consume specific versions of the NuGet Package for integration testing.
+7. More Birds with this stone - learn more things while we're here. 
