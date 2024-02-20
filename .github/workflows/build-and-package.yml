@@ -45,6 +45,9 @@ jobs:
       - name: Run Tests 
         run: |
           dotnet test ./nugetMultiTarget.sln /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=../../Reports /nologo 
+
+      - name: Build Reports 
+        run: |
           dotnet reportgenerator "-reports:./Reports/*.xml" "-targetdir:./Reports" -reporttypes:Cobertura
           dotnet reportgenerator "-reports:./Reports/Cobertura.xml" "-targetdir:./Reports/" -tag:1 -reportTypes:htmlInline
 
