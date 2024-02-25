@@ -18,10 +18,10 @@ This is a sample project that simply creates an 'echo' of a string provided to t
 
 The Project we are creating will target:
 
-- .NET Framework 4.7 (legacy projects)
-- .NET 6 (current LTS but EOL late 2024)
-- .NET 8 (lext LTS version)
-- .NETSTANDARD 2.0 (recommended version for support SDK projects)
+- .NET Framework 4.7 - existing legacy projects earliest version
+- .NET 6 - current Long Term Support (LTS) but End of Life (EOL) late 2024
+- .NET 8 - next LTS version
+- .NETSTANDARD 2.0 - best practice recommendation version for support SDK projects
 
 ### Test Targets
 

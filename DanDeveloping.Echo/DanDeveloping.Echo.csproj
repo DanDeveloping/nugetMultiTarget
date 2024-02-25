@@ -24,7 +24,11 @@
     <FileVersion>0.9.0</FileVersion>
     <VersionPrefix>0.9.0</VersionPrefix>
     <VersionSuffix></VersionSuffix>
+    <DebugType>portable</DebugType> 
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>..\Output\$(Configuration)\DanDeveloping.Echo.xml</DocumentationFile> 
+    <!--<PackageLicenseFile>LICENSE</PackageLicenseFile> -->
 
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
@@ -49,6 +53,10 @@
     <Content Include="NuGet\echo-free.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
