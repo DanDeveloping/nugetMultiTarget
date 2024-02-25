@@ -1,9 +1,18 @@
 ﻿namespace Echo
 {
+  /// <summary>
+  /// This class is designed to return an echo of a message.
+  /// </summary>
   public class Echoer
   {
     private string _Message = string.Empty;
 
+    /// <summary>
+    /// Main execution method for this class.
+    /// This method will reduce the message provided.  If longer than 15 characters, will limit to last 15 characters.
+    /// </summary>
+    /// <param name="message">Message to be returned as an echo.</param>
+    /// <returns></returns>
     public string Echo(string message)
     {
       _Message = message ?? string.Empty;
