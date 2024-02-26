@@ -11,25 +11,42 @@
     <Description>Provides an echo with limited charcter response</Description>
     <Summary>Description Provides an echo with limited charcter response</Summary>
     <Copyright>Dan Developing © 2024</Copyright>
-    <PackageProjectUrl>https://github.com/dmstrat/nugetMultiTarget</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/dmstrat/nugetMultiTarget</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/DanDeveloping/nugetMultiTarget</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DanDeveloping/nugetMultiTarget</RepositoryUrl>
     <PackageIcon></PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>NET;NUGET;SAMPLE;TRAINING;MULTITARGET</PackageTags>
     <PackageReleaseNotes>No release notes at this time.</PackageReleaseNotes>
-    <IncludeSymbols>True</IncludeSymbols>
     <BaseOutputPath>..\Output</BaseOutputPath>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <AssemblyVersion>0.9.0</AssemblyVersion>
-    <FileVersion>0.9.0</FileVersion>
-    <VersionPrefix>0.9.0</VersionPrefix>
+    <AssemblyVersion>0.9.7</AssemblyVersion>
+    <FileVersion>0.9.7</FileVersion>
+    <VersionPrefix>0.9.7</VersionPrefix>
     <VersionSuffix></VersionSuffix>
-    <DebugType>portable</DebugType> 
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <!--<DebugType>embedded</DebugType> #use embedded when not using snupkg-->
+    <DebugType>portable</DebugType>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <DocumentationFile>..\Output\$(Configuration)\DanDeveloping.Echo.xml</DocumentationFile> 
-    <!--<PackageLicenseFile>LICENSE</PackageLicenseFile> -->
-
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <DocumentationFile>..\Output\$(Configuration)\DanDeveloping.Echo.xml</DocumentationFile>
+    <!---SourceLink requirements -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+  </PropertyGroup>
+  <!-- workaround for .NET SDK prior 3.1.300 -->
+    <!--<PropertyGroup>
+      <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
+    </PropertyGroup>
+    <ItemGroup>
+      <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
+      <EmbeddedFiles Include="$(GeneratedGlobalUsingsFile)"/>
+      <EmbeddedFiles Include="$(TargetFrameworkMonikerAssemblyAttributesPath)"/>
+    </ItemGroup> -->
+  <!--end of workaround -->
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <AssemblyTitle>DanDeveloping.Echo .NET 6.0</AssemblyTitle>
@@ -53,7 +70,7 @@
     <Content Include="NuGet\echo-free.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\LICENSE">
+    <None Include="..\LICENSE.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
@@ -61,6 +78,12 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <None Update="NuGet\echo-free.png">
