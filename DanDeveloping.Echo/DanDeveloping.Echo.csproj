@@ -23,7 +23,6 @@
     <FileVersion>0.9.7</FileVersion>
     <VersionPrefix>0.9.7</VersionPrefix>
     <VersionSuffix></VersionSuffix>
-    <!--<DebugType>embedded</DebugType> #use embedded when not using snupkg-->
     <DebugType>portable</DebugType>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -35,16 +34,6 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
-  <!-- workaround for .NET SDK prior 3.1.300 -->
-    <!--<PropertyGroup>
-      <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
-    </PropertyGroup>
-    <ItemGroup>
-      <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
-      <EmbeddedFiles Include="$(GeneratedGlobalUsingsFile)"/>
-      <EmbeddedFiles Include="$(TargetFrameworkMonikerAssemblyAttributesPath)"/>
-    </ItemGroup> -->
-  <!--end of workaround -->
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>

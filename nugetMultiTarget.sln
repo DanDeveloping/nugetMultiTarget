@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\workflows\build-and-package.yml = .github\workflows\build-and-package.yml
 		GithubAndCodacy.md = GithubAndCodacy.md
 		LICENSE.md = LICENSE.md
+		MoreThings.md = MoreThings.md
 		README.md = README.md
 		TargetMultipleFrameworks.md = TargetMultipleFrameworks.md
 		TestProjects.md = TestProjects.md

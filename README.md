@@ -19,29 +19,11 @@ This is a sample project that simply creates an 'echo' of a string provided to t
 
 The Project we are creating will target:
 
-- .NET Framework 4.7 - existing legacy projects earliest version
+- .NET Framework 4.7 - existing legacy projects earliest version [highly compatible](https://learn.microsoft.com/en-us/visualstudio/releases/2022/compatibility#net-framework) to 4.8.1
 - .NET 6 - current Long Term Support (LTS) but End of Life (EOL) late 2024
 - .NET 8 - next LTS version
 - .NETSTANDARD 2.0 - best practice recommendation version for support SDK projects
 
-### Test Targets
-
-The Test Project will act like downstream projects by testing:
-
-- .NET Framework 4.7
-  Will be tested by:
-  - .NET Framework 4.7
-  - .NET Framework 4.8
-- .NET 6
-  Will be tested by:
-  - .NET 6
-  - .NET 7
-- .NET 8
-  Will be tested by:
-  - .NET 8
-- .NETSTANDARD 2.0
-  Will be tested by:
-  - .NET 5
 
 ## Goals of this Solution
 
@@ -50,7 +32,7 @@ The Test Project will act like downstream projects by testing:
 3. [Integrate between Github, Codacy, and NuGet](GithubAndCodacy.md)
 4. Documentation - Generate and Integrate as much documentation as required for a professional look both on NuGet.org and when consuming the package in downstream solutions.
 5. Use [individually created downstream projects](https://github.com/DanDeveloping/nugetMultiTargetConsumer) that consume specific versions of the NuGet Package for integration testing.
-6. More Birds with this stone - learn more things while we're here.
+6. Learn [More Things](MoreThings.md) while we are here. 
 
 ## Closing Thoughts
 
@@ -59,5 +41,3 @@ I hope you learned something using these projects.
 Now get out there and make your own! 
 
 DanDeveloping
-
-
