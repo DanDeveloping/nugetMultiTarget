@@ -35,6 +35,9 @@
     <!--<PackageLicenseFile>LICENSE</PackageLicenseFile> -->
 
     </PropertyGroup>
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <AssemblyTitle>DanDeveloping.Echo .NET 6.0</AssemblyTitle>
     <Nullable>enable</Nullable>
