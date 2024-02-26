@@ -49,7 +49,15 @@ The Test Project will act like downstream projects by testing:
 2. [Testing projects](TestProjects.md) against anticipated downstream versions to reduce revists to this code until a new version needs support or an old version is deprecated.
 3. [Integrate between Github, Codacy, and NuGet](GithubAndCodacy.md)
 4. Documentation - Generate and Integrate as much documentation as required for a professional look both on NuGet.org and when consuming the package in downstream solutions.
-5. Use individually created downstream projects that consume specific versions of the NuGet Package for integration testing.
+5. Use [individually created downstream projects](https://github.com/DanDeveloping/nugetMultiTargetConsumer) that consume specific versions of the NuGet Package for integration testing.
 6. More Birds with this stone - learn more things while we're here.
 
-## References
+## Closing Thoughts
+
+I hope you learned something using these projects. 
+
+Now get out there and make your own! 
+
+DanDeveloping
+
+
