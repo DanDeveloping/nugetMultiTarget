@@ -19,9 +19,9 @@
     <PackageReleaseNotes>No release notes at this time.</PackageReleaseNotes>
     <BaseOutputPath>..\Output</BaseOutputPath>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <AssemblyVersion>0.9.4</AssemblyVersion>
-    <FileVersion>0.9.4</FileVersion>
-    <VersionPrefix>0.9.4</VersionPrefix>
+    <AssemblyVersion>0.9.5</AssemblyVersion>
+    <FileVersion>0.9.5</FileVersion>
+    <VersionPrefix>0.9.5</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <!--<DebugType>embedded</DebugType> #use embedded when not using snupkg-->
     <DebugType>portable</DebugType>
@@ -30,12 +30,21 @@
     <DocumentationFile>..\Output\$(Configuration)\DanDeveloping.Echo.xml</DocumentationFile>
     <!---SourceLink requirements -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmpbedUntrackedSources>true</EmpbedUntrackedSources>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <!--<PackageLicenseFile>LICENSE</PackageLicenseFile> -->
-
     </PropertyGroup>
+  <!-- workaround for .NET SDK prior 3.1.300 -->
+    <!--<PropertyGroup>
+      <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
+    </PropertyGroup>
+    <ItemGroup>
+      <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
+      <EmbeddedFiles Include="$(GeneratedGlobalUsingsFile)"/>
+      <EmbeddedFiles Include="$(TargetFrameworkMonikerAssemblyAttributesPath)"/>
+    </ItemGroup> -->
+  <!--end of workaround -->
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
