@@ -1,6 +1,7 @@
 # NugetMultiTarget Project
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/686e979f10184a749eac6553f49b830a)](https://app.codacy.com/gh/dmstrat/nugetMultiTarget/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/686e979f10184a749eac6553f49b830a)](https://app.codacy.com/gh/dmstrat/nugetMultiTarget/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ebe6acfb0e90460b8ec51bc8fad03eb9)](https://app.codacy.com/gh/DanDeveloping/nugetMultiTarget/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/ebe6acfb0e90460b8ec51bc8fad03eb9)](https://app.codacy.com/gh/DanDeveloping/nugetMultiTarget/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 
 Learning to develop multitargeted nuget packages for .NET targets
 
