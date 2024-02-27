@@ -23,25 +23,40 @@ Codacy has free accounts that easily integrate with github repositories like thi
 
 ## How do we do it?
 
-dotnet tools allow for most of these actions to be accomplished.
+dotnet tools allow for most of these actions to be accomplished.  There are a few actions we can use on top of that to round out this effort. 
 
-| Step | conditional | github action command |
-| --- | --- | --- |
-| Checkout code | | actions/checkout |
-| Install dotnet tools | | dotnet tool restore |
-| Restore solution | | dotnet restore |
-| Build solution | | dotnet build ... |
-| Run tests with coverage | | dotnet test ... |
-| Install Report Generator | | dotnet tool install ... |
-| Build Coverage Reports | | reportgenerator ... |
-| Convert Coverage Report to Markdown file | | irongut/CodeCoverageSummary |
-| Add Report to PR Comment | | marocchino/sticky-pull-request-comment |
-| Add Coverage Report to Job Summary | | >> $GITHUB_STEP_SUMMARY |
-| Upload Coverage Report to Codacy | | codacy/codacy-coverage-reporter-action |
-| Generate NuGet Package | | dotnet pack ... |
-| Add Package to Artifacts | | actions/upload-artifact |
-| Upload Nuget Package to Github Packages | on build | -**in progress**- |
-| Promote/upload NuGet Package to Nuget.org | on release | -**in progress**- |
+### Regular Build [pull request and merge to main]
+| Step | github action command |
+| --- | --- |
+| Checkout code | actions/checkout |
+| Update Version Information | **in progress** | 
+| Install dotnet tools | dotnet tool restore |
+| Restore solution | dotnet restore |
+| Build solution | dotnet build ... |
+| Run tests with coverage | dotnet test ... |
+| Install Report Generator | dotnet tool install ... |
+| Build Coverage Reports | reportgenerator ... |
+| Convert Coverage Report to a Markdown file | irongut/CodeCoverageSummary |
+| Add Report to PR Comment | marocchino/sticky-pull-request-comment |
+| Add Coverage Report to Job Summary | >> $GITHUB_STEP_SUMMARY |
+| Upload Coverage Report to Codacy | codacy/codacy-coverage-reporter-action |
+| Generate NuGet Package | dotnet pack ... |
+| Add Package to Artifacts | actions/upload-artifact |
+
+### Merge to main (additional steps)
+| Step | githb action command |
+| --- | --- |
+| Upload Nuget Package to Github Packages | dotnet nuget push -**in progress**- |
+
+Once the code is merged to main, we are going to perform all the branch work again, but this time we are going to build the package to be uploaded to Github Packages space.  This merged code is the official code we will use all the way to RELEASE if this version passes validations.
+
+### Release 
+| Step | githb action command |
+| --- | --- |
+| Download Package from snapshot | **in progress | 
+| Promote/upload NuGet Package to Nuget.org | dotnet nuget push -**in progress**- |
+
+The Release action WILL NOT rebuild the packages but to PROMOTE the selected snapshot to Nuget.org.  This protects the code from accidental changes in main that are missed between SNAPSHOT and RELEASE.
 
 ## References
 

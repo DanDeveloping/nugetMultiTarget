@@ -65,3 +65,4 @@ Read their [site](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) 
 ## Additional References 
 
 [Microsoft Learn - SourceLink Guidance](https://learn.microsoft.com/en-us/dotnet/standard/library-guidance/sourcelink)
+[Microsoft Dev Blogs - Producing Packages with Source Link](https://devblogs.microsoft.com/dotnet/producing-packages-with-source-link/)
