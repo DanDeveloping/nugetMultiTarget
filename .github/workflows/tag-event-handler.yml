@@ -1,0 +1,24 @@
+name: Tag Event Handler
+
+on: 
+  push:
+    tags: 
+      - '*'
+    branches: 
+      - main
+
+#distinguish between create-tag and create-branch 
+jobs: 
+  build: 
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Echo GitHub events
+        run: |
+          echo "GitHub event: ${{ github.event_name }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "SHA: ${{ github.sha }}"
+          echo "Action: ${{ github.action }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Event payload: ${{ toJson(github.event) }}"
