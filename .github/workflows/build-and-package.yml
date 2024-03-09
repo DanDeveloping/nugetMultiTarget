@@ -6,6 +6,9 @@ on:
       semver:
         required: true 
         description: Provide the semver version to build and deploy the nuget package.  
+  release:
+    types:
+      - published
   push: 
     branches: 
       - main
@@ -92,13 +95,24 @@ jobs:
         run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
 
       # Pack Nuget Package to /artifacts folder for publishing 
-      - name: Pack NuGet package
-        if: github.event_name != 'workflow_dispatch'
-        run: dotnet pack --configuration Release --output ./artifacts
 
+      # Pre-release packaging 
+      # Version = (major).(minor).(patch)-build.{github_number}
+      - name: Pack NuGet package
+        if: github.event_name != 'workflow_dispatch' && github.event_name != 'release'
+        run: dotnet pack --configuration Release --output ./artifacts /p:VersionSuffix=build.${{ github.run_number }}
+
+      # Workflow Dispatch to set a specific version without code changes (override)
+      # Version is based on semantic versioning and is user input
       - name: Pack NuGet package
         if: github.event_name == 'workflow_dispatch'
         run: dotnet pack --configuration Release --output ./artifacts /p:Version=${{ github.event.inputs.semver }}
+
+      # Release build Version 
+      # Version = (major).(minor).(patch)
+      - name: Pack NuGet package
+        if: github.event_name == 'release'
+        run: dotnet pack --configuration Release --output ./artifacts
 
       # Upload NugetPackage as Artifact to workflow
       - name: Upload NuGet package to Artifacts collection

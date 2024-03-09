@@ -13,30 +13,36 @@
     <Copyright>Dan Developing © 2024</Copyright>
     <PackageProjectUrl>https://github.com/DanDeveloping/nugetMultiTarget</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DanDeveloping/nugetMultiTarget</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+
     <PackageIcon></PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>NET;NUGET;SAMPLE;TRAINING;MULTITARGET</PackageTags>
     <PackageReleaseNotes>No release notes at this time.</PackageReleaseNotes>
     <BaseOutputPath>..\Output</BaseOutputPath>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <AssemblyVersion>0.9.7</AssemblyVersion>
-    <FileVersion>0.9.7</FileVersion>
-    <VersionPrefix>0.9.7</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
-    <DebugType>portable</DebugType>
+    <!-- Version Information --> 
+    <MajorVersion Condition="'$(MajorVersion)' == ''">0</MajorVersion>
+    <MinorVersion Condition="'$(MinorVersion)' == ''">9</MinorVersion>
+    <PatchVersion Condition="'$(PatchVersion)' == ''">0</PatchVersion>
+    <VersionPrefix Condition="'$(VersionPrefix)' == ''">$(MajorVersion).$(MinorVersion).$(PatchVersion)</VersionPrefix>
+    <!-- Documentation -->
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <DocumentationFile>..\Output\$(Configuration)\DanDeveloping.Echo.xml</DocumentationFile>
     <!---SourceLink requirements -->
+    <DebugType>portable</DebugType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
+  <!-- Deterministic Build / CI Build -->
+  <!--DO NOT use on local builds or it could cause trouble during debug to find the correct files. -->
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
+  <!-- .NET Version Information visible on File | Properties -->
   <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
     <AssemblyTitle>DanDeveloping.Echo .NET 6.0</AssemblyTitle>
     <Nullable>enable</Nullable>
